@@ -26,10 +26,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
 function remove_shibboleth_tools () {
-
 	if ( function_exists( 'remove_menu_page' ) ) {
 		remove_submenu_page( 'tools.php', 'shibboleth-options' );
 	}
-
 }
 add_action( 'admin_menu', 'remove_shibboleth_tools', 999 );
