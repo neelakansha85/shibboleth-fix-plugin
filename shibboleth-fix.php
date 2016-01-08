@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name:    Remove Shibboleth From Tools Menu
-Plugin URI:     https://github.com/neelakansha85/
+Plugin URI:     https://github.com/neelakansha85/shibboleth-fix-plugin
 Description:    Super simple plugin to remove the Sibboleth settings from Tools menu for anyone except super admins.
-Version:        0.1
+Version:        0.2
 Author:         Neel Shah
 Author URI:     http://neelshah.info
 License: 		GPLv2 or later
@@ -25,9 +25,11 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
+if ( !is_super_admin() ) {
+	add_action( 'admin_menu', 'remove_shibboleth_tools', 999 );
+}
 function remove_shibboleth_tools () {
 	if ( function_exists( 'remove_menu_page' ) ) {
 		remove_submenu_page( 'tools.php', 'shibboleth-options' );
 	}
 }
-add_action( 'admin_menu', 'remove_shibboleth_tools', 999 );
