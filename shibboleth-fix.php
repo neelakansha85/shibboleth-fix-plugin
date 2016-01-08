@@ -24,12 +24,21 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
+if(!class_exists('Shibboleth_Plugin_Fix_NSD')) {
+	class Shibboleth_Plugin_Fix_NSD {
 
-if ( !is_super_admin() ) {
-	add_action( 'admin_menu', 'remove_shibboleth_tools', 999 );
-}
-function remove_shibboleth_tools () {
-	if ( function_exists( 'remove_menu_page' ) ) {
-		remove_submenu_page( 'tools.php', 'shibboleth-options' );
+		if ( !current_user_can('install_plugins') ) {
+			add_action( 'admin_menu', 'remove_shibboleth_tools', 999 );
+		}
+		function remove_shibboleth_tools () {
+			if ( function_exists( 'remove_menu_page' ) ) {
+				remove_submenu_page( 'tools.php', 'shibboleth-options' );
+			}
+		}
 	}
+}
+
+if(class_exists('Shibboleth_Plugin_Fix_NSD')) {
+	// instantiate the plugin class
+	$shibboleth_plugin_fix_nsd = new Shibboleth_Plugin_Fix_NSD();
 }
