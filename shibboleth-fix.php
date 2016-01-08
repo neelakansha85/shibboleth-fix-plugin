@@ -3,7 +3,7 @@
 Plugin Name:    Remove Shibboleth From Tools Menu
 Plugin URI:     https://github.com/neelakansha85/shibboleth-fix-plugin
 Description:    Super simple plugin to remove the Sibboleth settings from Tools menu for anyone except super admins.
-Version:        0.2
+Version:        0.3
 Author:         Neel Shah
 Author URI:     http://neelshah.info
 License: 		GPLv2 or later
