@@ -25,11 +25,11 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
-if ( !is_super_admin() ) {
-	add_action( 'admin_menu', 'remove_shibboleth_tools', 999 );
-}
+//
 function remove_shibboleth_tools () {
 	if ( function_exists( 'remove_menu_page' ) ) {
-		remove_submenu_page( 'tools.php', 'shibboleth-options' );
+		if ( ! is_super_admin() ) {
+			remove_submenu_page( 'tools.php', 'shibboleth-options' );
+		}
 	}
 }
